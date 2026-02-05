@@ -20,11 +20,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WCFE_PLUGIN_FILE', __FILE__ );
-define( 'WCFE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-define( 'WCFE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'WCFE_VERSION', '1.0.0' );
+// Define plugin constants.
+if ( ! defined( 'WCFE_PLUGIN_FILE' ) ) {
+	define( 'WCFE_PLUGIN_FILE', __FILE__ );
+}
 
+if ( ! defined( 'WCFE_PLUGIN_DIR' ) ) {
+	define( 'WCFE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+}
+
+if ( ! defined( 'WCFE_PLUGIN_URL' ) ) {
+	define( 'WCFE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+}
+
+if ( ! defined( 'WCFE_VERSION' ) ) {
+	define( 'WCFE_VERSION', '1.0.0' );
+}
+
+// Bootstrap the plugin.
 if ( ! class_exists( 'WCFE_Bootstrap' ) ) {
 	include_once WCFE_PLUGIN_DIR . 'core/bootstrap.php';
 	WCFE_Bootstrap::init();
